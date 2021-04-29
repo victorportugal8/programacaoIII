@@ -32,7 +32,6 @@ public class URI1040{
             Console.WriteLine(c);
             Console.WriteLine(b);
             Console.WriteLine(a);
-        } else{
         }
 
         Console.WriteLine("");
