@@ -1,0 +1,166 @@
+Orientacao a Objetos
+
+1. o principal são os dados (Informação)
+
+Refazendo o programa EX_1113
+
+1-Passo: Quais as entidades estao sendo manipuladas
+  ex: x e y Inteiros
+
+  criar entidade Tupla que contem X e Y
+
+2-Passo: quais os Atribuitos (dominio) para representar cada entidade
+    Tupla
+    X,Y : inteiro;
+
+3-Passo: identificar as operaçoes para resolver o problema
+  Ler
+  Cres_Decres(determina se é crescente ou decrescente)
+
+4-Passo: Implementar uma classe para cada entidade identificada
+         e as suas operações
+
+using System;
+class Tupla
+{
+   private int X,Y;
+   public bool Ler()
+   {
+      string linha = Console.ReadLine();
+      string []v = linha.Split(' ');
+      X = Convert.ToInt32(v[0]);
+      Y = Convert.ToInt32(v[1]);
+      return X!=Y;
+   }
+   public void Cresc_Descr()
+   {
+      if (X > Y)
+	Console.WriteLine("Decrescente");
+      else if (X < Y)
+	Console.WriteLine("Crescente");   
+   }
+}
+
+5-passo fazer o programa principal
+  que no caso de C# implica em fazer um classe para conter
+  o programa principal.
+
+class Program 
+{
+   public static void Main(string []args)
+   {
+      Tupla a = new Tupla();
+      while (a.Ler())
+         a.Cresc_Descr(); 
+   }	
+}
+
+exercicios:
+problema 1079
+public static void Main(string []args) {
+    int N,i;
+    Media m = new Media();
+    N = Convert.ToInt32(Console.ReadLine());
+    m.setPesos(2,3,5);
+    for(i=0;i<N;i++)
+    {
+        string Linha = Console.ReadLine();
+        string []partes = Linha.Split(' ');
+        double v1 = Convert.ToDouble(partes[0]);
+        double v2 = Convert.ToDouble(partes[1]);
+        double v3 = Convert.ToDouble(partes[2]);
+	m.setValores(v1,v2,v3);
+        Console.WriteLine("{0:F1}", m.media()); 
+    }
+}
+
+1036
+public static void Main(string []args) { 
+    Bhaskara B = new Bhaskara();
+    B.ler();
+    if (B.delta <0)
+      Console.WriteLine("Impossivel calcular");
+    else {
+      Console.WriteLine("R1 = {0:F5}",B.raiz1());
+      Console.WriteLine("R2 = {0:F5}",B.raiz2());
+    }
+}
+
+1175
+public static void Main(string []args) { 
+     Vet v = new Vet();
+     v.ler();
+     v.trocar();
+     v.mostrar();
+}
+
+1131
+public static void Main(string []args) { 
+     Grenais g = new Grenais();
+     
+     do {
+	string linha = Console.ReadLine();
+	string lista = linha.Split(' ');
+	int inter = Convert.ToInt32(lista[0]);
+	int gremio = Convert.ToInt32(lista[1]);
+	g.adicionarResultado(inter, gremio);
+        Console.WriteLine("Novo grenal (1-sim 2-nao)");
+	int opc = Convert.ToInt32(Console.ReadLine());
+     } while (!((opc==2)));	
+     g.MostrarEstatisticas();
+}
+
+1959
+public static void Main(string []args)
+{
+	Poligono p;
+	string linha = Console.ReadLine();
+        string []v = linha.Split(' ');
+        p.setLados(Convert.ToInt32(v[0]));
+        p.setComprimento(Convert.ToInt32(v[1]));
+        Console.WriteLine("{0}",p.Perimetro());
+}
+
+
+2176
+public static void Main(string []args)
+{
+	Binario b = new Binario();
+	b.ler();
+	Console.WriteLine("{0}{1}",b.Bits(), b.Paridade());
+}
+
+2222
+public static void Main(string []args)
+{
+    int it,i,j,T,N,M,Q;
+    T = Convert.ToInt32(Console.ReadLine());
+    for(it=0;i<T;it++)
+    {
+      N = Convert.ToInt32(Console.ReadLine());
+      Conjunto []V = new Conjuto[N]; //cria um vetor de conjuntos
+      for (i=0;i<N;i++)
+      {
+         string Linha = Console.ReadLine();
+         string []partes = Linha.split(' ');
+         M = Convert.ToInt32(partes[0]);
+         for(j=1;j<M;j++)
+           V[i].inserir(Convert.ToInt32[j]);
+      }
+      Q = Convert.ToInt32(Console.ReadLine());
+      for (i=0;i<Q;i++)
+      {
+         string Linha = Console.ReadLine();
+         string []partes = Linha.split(' ');
+         int Op = Convert.ToInt32(partes[0]);
+	 Conjunto ConjA = V[Convert.ToInt32(partes[1])];
+         Conjunto ConjB = V[Convert.ToInt32(partes[2])];
+         Conjunto Resp;
+	 if (Op == 1)
+           Resp = ConjA.Intersecao(ConjB);
+         else
+           Resp = ConjA.Uniao(ConjB); 
+         Console.WriteLine("{0}", Resp.ObterQuantidadeElementos());
+      }
+    }
+}
