@@ -60,6 +60,25 @@ class ciruclo : formaGeo{
     }
 }
 
+class elipse : formaGeo{
+    private double r1, r2;
+
+    public override void ler(){
+        Console.WriteLine("Digite o valor do raio 1:\n");
+        r1 = double.Parse(Console.ReadLine());
+        Console.WriteLine("Digite o valor do raio 2:\n");
+        r2 = double.Parse(Console.ReadLine());
+    }
+
+    public override string nome(){
+        return "Elipse";
+    }
+
+    public override double area(){
+        return 3.1415 * r1 * r2;
+    }
+}
+
 public class formas{
     private formaGeo[] v;
     private int qtd;
@@ -73,9 +92,9 @@ public class formas{
         int tipo;
 
         do{
-            Console.WriteLine("1: Quadrado\n2: Retangulo\n3: Circulo\nEntre com a sua escolha:\n");
+            Console.WriteLine("1: Quadrado\n2: Retangulo\n3: Circulo\n4: Elipse\nEntre com a sua escolha:\n");
             tipo = int.Parse(Console.ReadLine());
-        } while(tipo < 1 || tipo > 3);
+        } while(tipo < 1 || tipo > 4);
 
         switch(tipo){
             case 1:
@@ -84,6 +103,8 @@ public class formas{
                 return new retangulo();
             case 3:
                 return new ciruclo();
+            case 4:
+                return new elipse();
             default:
                 return null;
         }
