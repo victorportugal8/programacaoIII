@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Historico.GUIConsole{
+namespace HistoricoDisciplinas.GUIConsole{
     public class GUIConsole{
         public int Menu(){
             int opc;
