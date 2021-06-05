@@ -3,41 +3,17 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace HistoricoDisciplinas{
-    public abstract class Disciplina{
-        private int codigo, creditos, semestre, ano;
-        private string nome;
+    public class Disciplina{
+        public int Codigo{get; set;}
+        public int Creditos{get; set;}
+        public int Semestre{get; set;}
+        public int Ano{get; set;}
+        public double Nota1{get; set;}
+        public double Nota2{get; set;}
+        public string Nome{get; set;}
 
-        public virtual void Ler(){
-            Console.Write("Digite o codigo da disciplina:\n");
-            codigo = int.Parse(Console.ReadLine());
-            Console.Write("Digite o nome da disciplina:\n");
-            nome = Console.ReadLine();
-            Console.Write("Digite a quantidade de creditos da disciplina:\n");
-            creditos = int.Parse(Console.ReadLine());
-            Console.Write("Digite o semestre da disciplina:\n");
-            semestre = int.Parse(Console.ReadLine());
-            Console.Write("Digite o ano da disciplina:\n");
-            ano = int.Parse(Console.ReadLine());
+        public double Media(){
+            return (Nota1 + Nota2) / 2;
         }
-
-        public abstract double Media();
-
-        public int Codigo{
-            get{
-                return codigo;
-            }
-        }
-
-        public string Nome{
-            get{
-                return nome;
-            }
-        }
-
-        public int Creditos{
-            get{
-                return creditos;
-            }
-        }
-    }
+    }    
 }
