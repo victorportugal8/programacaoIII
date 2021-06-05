@@ -51,7 +51,7 @@ namespace HistoricoDisciplinas{
         public void Listar(){
             Console.WriteLine("{0, -30}{1}{2}", "Nome", "Cred", "Media");
             for(int i = 0; i < qtd; i++){
-                Console.WriteLine("{0, -30} {1:00} {2:00.00}", vet[i).Nome, vet[i].Creditos, vet[i].Media());
+                Console.WriteLine("{0, -30} {1:00} {2:00.00}", vet[i].Nome, vet[i].Creditos, vet[i].Media());
             }
         }
 
