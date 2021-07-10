@@ -1,0 +1,120 @@
+1-) Faça um programa para ler os vertices de um poligono e mostrar o perimetro do poligono lido.
+    o programa principal eh este e nao pode ser alterado
+
+    public static void Main(string []args)
+    {
+        TPoligono p = new TPoligono;
+	    p.ler();
+        Console.WriteLine("perimetro - {0:F2}",p.perimetro());
+    }
+
+    obs: entrada, na primeira linha teremos um inteiro n (3 <= n <= 100), contendo a quantidade de vertices
+         nas n linhas seguintes teremos cada vertices (ponto 2D: x,y reais), cada linha de vertices tem
+         dois valores reais separados por espaco.
+       ex: 4
+           1.0 1.0
+           1.0 0.0  
+           0.0 0.0
+           0.0 1.0
+
+         saida deve-se escrever "perimetro - " seguido do valor do perimetro com 2 casas decimais.
+	 ex: perimetro - 4.00        
+
+2-) faça um programa para ler n valores inteiros e mostra-los na ordem inversa da leitura
+    o programa principal eh este e nao pode ser alterado
+    public static void Main(string []args)
+    {
+        TVetInt v = new TVetInt();
+        v.ler();
+        v.inverter();
+        v.listar();
+    }
+
+    entrada: na primeira linha temos o valor de n (0 < n <= 100), na segunda linha temos n numeros inteiros m (-10000 < m < 10000), separados com espaco
+       ex: 10
+           1 2 3 4 5 6 7 8 9 10
+             
+    saida: listar os numeros, na mesma linha, na ordem inversa da leitura, separados por espaco, sendo que o ultimo numero nao pode ter espaco depois
+           obs: nao se esqueca de pular linha, no ultimo valor
+           ex: 10 9 8 7 6 5 4 3 2 1
+
+3-) faça uma classe para representar um conjuntos de numeros reais de no maximo 100 elementos
+   nesta classe deve-se ter as seguintes operacoes
+
+    a. inserir elemento
+    b. remover elemento
+    c. pertence (se um elemento pertence ou nao ao conjunto)
+    d. esta contido (se um conjunto esta contido no outro)
+    e. uniao
+    f. intersecao
+    g. subtracao de conjuntos
+
+    o programa principal eh este e nao pode ser alterado
+    public static void Main(string []args)
+    {
+        TConjunto a,b,c,d,e;
+        int x;
+        a = new TConjunto();
+        b = new TConjunto();
+        c = new TConjunto();
+        d = new TConjunto();
+        e = new TConjunto();
+        a.ler();
+        b.ler();
+        c.uniao(a,b);
+        Console.WriteLine(" a UNIAO b = ");
+        c.mostrar();
+        d.intersecao(a,b);
+        Console.WriteLine(" a INTERSECAO b = ");
+        d.mostrar();
+        Console.WriteLine("d esta contido em a: {0}", d.estacontido(a)?"sim":"nao");
+        Console.WriteLine("a contem d: {0}",a.contem(d)?"sim"?"nao");
+        Console.WriteLine("c esta contido em a: {0}", c.estacontido(a));
+        Console.WriteLine("c contem a: {0}", c.contem(a)?"sim":"nao");
+        Console.WriteLine("c contem b: {0}", c.contem(b)?"sim":"nao");
+        Console.WriteLine("a contem b: {0}", a.contem(b)?"sim":"nao");
+        Console.WriteLine("a esta contido em b: {0}", a.estacontido(b)?"sim":"nao");
+        Console.WriteLine(" a - b = ");
+        e.subtracao(a,b);
+        e.mostrar();
+        x = int.Parse(Console.ReadLine());
+        while (x>0){
+	        Console.WriteLine("{0} pertence ao conjunto A: {1}",x, a.pertence(x)?"sim":"nao");
+            x = int.Parse(Console.ReadLine());
+	    }
+    }
+
+   entrada: na primeira linha termos um inteiro NA (0 < NA < 100) que representa o numero de linhas dos elementos
+            a serem inseridos no conjunto A (nao eh a quantidade de elementos, uma vez que podem ter elementos repetidos na entrada e no conjunto nao pode ter)
+            na linha seguinte teremos NA numeros inteiros separados por espaco, que devem ser inseridos no conjunto A
+            na seguencia teremos um inteiro NB (0 < NB < 100) que representa o numero de linhas dos elementos a serem inseridos no conjunto B (nao eh a quantidade de elementos, uma vez que podem ter elementos repetidos na entrada e no conjunto nao pode ter) 
+            na linha seguinte teremos NB numeros inteiros separados por espaco, que devem ser inseridos no conjunto B
+	        na ultima linha teremos varios valores inteiros que devem ser lidos e testados se pertencem ou nao ao conjunto A,
+            este linha termina com o numero 0, que nao deve ser testado.
+      ex: 10
+          1 2 3 3 2 1 2 7 8 8
+          5
+          1 2 3 4 5
+    	  1 2 3 4 5 6 7 8 9 10 11 0	
+
+4-) faça um programa que leia uma matriz de caracter e mostre a transposta da matriz.
+    o programa principal eh este e nao pode ser alterado
+    public static void Main(string []args)
+    {
+        TMatriz a = new TMatriz();
+       a.ler();
+        a.transposta();
+        a.mostrar();
+    }
+
+    entrada: na primeria linha teremos dois inteiros N e M (0 < N,M <= 100) contendo a quantidade de linhas e colunas da matriz, respectivamente.
+             na sequencia teremos N Linhas, onde para cada linha teremos M caracteres 
+        ex: 3 4
+            ABCD
+            xyzw
+            1234
+    saida: mostrar a transposta da matriz lida
+            Ax1
+            By2
+            Cz3
+            Dw4
