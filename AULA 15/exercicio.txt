@@ -1,0 +1,12 @@
+1 - faca um programa para gerenciar o historico escolar com no maximo 100 disciplinas
+neste programa deve ser possivel realizar as seguintes operacoes
+
+    1. inserir disciplina
+    2. remover disciplina pelo codigo
+    3. alterar dados da disciplina dado o codigo
+    4. listar todas as disciplinas (mostrar nome, creditos e media)
+   
+as disciplinas tem as seguintes informacoes:
+    nome, creditos, semestre, ano, nota1, nota2
+    media = (nota1+nota2)/2
+  
